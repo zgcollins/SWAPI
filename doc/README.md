@@ -3,12 +3,12 @@
 This is Zack Collins's implementation of the SWAPI tasks given by Red Hat for technical assessment of programming skills.
 
 The project consists of two scripts...
-	* task_one.py
-		* When run, this task will generate 15 random integers between 1 and 87 (not including 17, which returns a 404 error from the API endpoint)
-		* The 15 random integers will correspond to character IDs in the Star Wars people API
-		* Each of the 15 SW character's data will be retreived from the API, stored in a Python dictionary, and written to a MySQL database. See below for a description of DB schema.
-		* The script will then write a beautified JSON object to the console. The JSON object will have dictionary keys corresponding to each film's episode number, and a nested dictionary with the film's title and all the characters that appeared in each film. The JSON data printed to console will only include the 15 characters that were queried initially. However the MySQL database will aggregate more and more character records as the task is run. 
-	* task_two.py  
+* task_one.py
+	* When run, this task will generate 15 random integers between 1 and 87 (not including 17, which returns a 404 error from the API endpoint)
+	* The 15 random integers will correspond to character IDs in the Star Wars people API
+	* Each of the 15 SW character's data will be retreived from the API, stored in a Python dictionary, and written to a MySQL database. See below for a description of DB schema.
+	* The script will then write a beautified JSON object to the console. The JSON object will have dictionary keys corresponding to each film's episode number, and a nested dictionary with the film's title and all the characters that appeared in each film. The JSON data printed to console will only include the 15 characters that were queried initially. However the MySQL database will aggregate more and more character records as the task is run. 
+* task_two.py  
 
 ## Getting Started
 
@@ -17,15 +17,15 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 You will need the following to run... 
-	* Python 3.* or later
-	* A MySQL instance on your local machine and the credentials to log into the server
-	* The following libraries/modules (use pip install from cmd line if any are missing)
-		* json
-		* random
-		* getpass
-		* jsbeautifier
-		* requests
-		* mysql-connector
+* Python 3.* or later
+* A MySQL instance on your local machine and the credentials to log into the server
+* The following libraries/modules (use pip install from cmd line if any are missing)
+	* json
+	* random
+	* getpass
+	* jsbeautifier
+	* requests
+	* mysql-connector
 
 
 ### Installing
