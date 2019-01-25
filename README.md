@@ -8,7 +8,12 @@ This is Zack Collins's implementation of the SWAPI tasks given by Red Hat for te
 		* The 15 random integers will correspond to character IDs in the Star Wars people API
 		* Each of the 15 SW character's data will be retreived from the API, stored in a Python dictionary, and written to a MySQL database. See below for a description of DB schema.
 		* The script will then write a beautified JSON object to the console. The JSON object will have dictionary keys corresponding to each film's episode number, and a nested dictionary with the film's title and all the characters that appeared in each film. The JSON data printed to console will only include the 15 characters that were queried initially. However the MySQL database will aggregate more and more character records as the task is run. 
-	* task_two.py  
+	* task_two.py
+		* When run, the task will retrieve data for SW Episode 4: A New Hope
+		* The film data will be stored in a dictionary. All of the referenced URLs for the film's data will be queried and the URLs will be replaced with the actual data.
+		* The character height and mass will be converted from metric to standard.
+		* The newly created dictionary will be written to a JSON file called task_two.json
+		* Initial requirements were to remove all cross-referenced URLs from the replacement data. Due to time constraints this requirement hasn't been fulfilled.
 
 ## Getting Started
 
@@ -37,6 +42,8 @@ Import the project to a directory on your local machine. Open the command line a
 ### Running the Program
 
 Once you are in the project's src directory, run task_one.py from the console. You will be prompted for your MySQL server credentials. The script will take care of the rest. You can use a MySQL IDE such as MySQL Workbench to query the database tables and observe the newly created records. See below for more database details.
+
+Similarly, run task_two.py from the command line to execute the script. The resulting JSON file will be written to your working directory.
 
 
 ## Database
