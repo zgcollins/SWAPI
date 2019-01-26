@@ -57,6 +57,5 @@ task_one.py can be run multiple times to continue populating the database with c
 
 * MySQL Connector/Python Developer Guide
 	* https://dev.mysql.com/doc/connector-python/en/
-	* This was a necessary guide for the developer that normally relies too heavily on Django to manage SQL transactions :no_mouth:
 
 ## Additional Notes
