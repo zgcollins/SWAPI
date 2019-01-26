@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 You will need the following to run... 
-* Python 3.* or later
+* Python 3.*
 * A MySQL instance on your local machine and the credentials to log into the server
 * The following libraries/modules (use pip install from cmd line if any are missing)
 	* jsbeautifier
