@@ -91,6 +91,19 @@ def convertMetricToStandard(characters):
             character['mass'] = str(character['mass'])
 
 
+# Removes nested URLS from a list of dictionaries and returns the list
+def removeNestedUrlsFromList(nested_list):
+    for index in range(len(nested_list)):
+        try:
+            nested_list[index] = {k: v for k, v in nested_list[index].items() if not isinstance(v, list) and str(k) != "url"}
+            for key in nested_list[index]:
+                if key == "homeworld" and nested_list[index][key].startswith("http"):
+                    homeworld_api_data = getApiData(nested_list[index][key])
+                    nested_list[index][key] = homeworld_api_data['name']
+        except AttributeError:
+            continue
+    return nested_list
+
 
 
 
@@ -110,16 +123,17 @@ def main():
     convertMetricToStandard(EPISODE_FOUR['characters'])
 
     # Remove cross references
-    d_reduced = EPISODE_FOUR
-
-
-
+    for key in EPISODE_FOUR:
+        if key in ('characters', 'planets', 'starships', 'vehicles', 'species'):
+            nested_list = EPISODE_FOUR[key]
+            EPISODE_FOUR[key] = removeNestedUrlsFromList(nested_list)
+    
 
 
 
     # Write to JSON file
     with open('task_two.json', 'w') as outfile:
-        json.dump(d_reduced, outfile, indent=4)
+        json.dump(EPISODE_FOUR, outfile, indent=4)
     
 
 
