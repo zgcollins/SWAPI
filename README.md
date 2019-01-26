@@ -13,6 +13,7 @@ This is Zack Collins's implementation of the SWAPI tasks given by Red Hat for te
 		* The film data will be stored in a dictionary. All of the referenced URLs for the film's data will be queried and the URLs will be replaced with the actual data.
 		* The character height and mass will be converted from metric to standard.
 		* The newly created dictionary will be written to a JSON file called task_two.json
+		* The new dictionary will not contain any cross-referenced URLs
 
 
 ## Getting Started
