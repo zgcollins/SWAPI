@@ -26,8 +26,6 @@ You will need the following to run...
 * Python 3.* or later
 * A MySQL instance on your local machine and the credentials to log into the server
 * The following libraries/modules (use pip install from cmd line if any are missing)
-	* json
-	* random
 	* getpass
 	* jsbeautifier
 	* requests
