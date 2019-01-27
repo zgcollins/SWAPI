@@ -40,7 +40,7 @@ FILMS = {}
 def getRandomIntAndAppend():
     url = BASE_URL
     while True:
-        random_int = random.randint(1,87)
+        random_int = random.randint(1,88)
         # While system testing, found that person 17 throws a 404 error
         if random_int == 17:
             continue 
