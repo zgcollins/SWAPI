@@ -94,14 +94,22 @@ def convertMetricToStandard(characters):
 # Removes nested URLS from a list of dictionaries and returns the list
 def removeNestedUrlsFromList(nested_list):
     for index in range(len(nested_list)):
-        try:
-            nested_list[index] = {k: v for k, v in nested_list[index].items() if not isinstance(v, list) and str(k) != "url"}
-            for key in nested_list[index]:
-                if key == "homeworld" and nested_list[index][key].startswith("http"):
-                    homeworld_api_data = getApiData(nested_list[index][key])
-                    nested_list[index][key] = homeworld_api_data['name']
-        except AttributeError:
-            continue
+        for key in nested_list[index]:
+            try:
+                if isinstance(nested_list[index][key], list):
+                    for nested_index in range(len(nested_list[index][key])):
+                        if nested_list[index][key][nested_index].startswith("http"):
+                            url = nested_list[index][key][nested_index]
+                            data = getApiData(url)
+                            nested_list[index][key][nested_index] = list(data.values())[0]
+                elif nested_list[index][key].startswith("http"):
+                    data = getApiData(nested_list[index][key])
+                    nested_list[index][key] = data['name']
+            except AttributeError:
+                continue
+        nested_list[index] = { k: v for k,v in nested_list[index].items() if str(k) != "url"}
+
+    
     return nested_list
 
 
@@ -123,10 +131,9 @@ def main():
     convertMetricToStandard(EPISODE_FOUR['characters'])
 
     # Remove cross references
-    for key in EPISODE_FOUR:
-        if key in ('characters', 'planets', 'starships', 'vehicles', 'species'):
-            nested_list = EPISODE_FOUR[key]
-            EPISODE_FOUR[key] = removeNestedUrlsFromList(nested_list)
+    for key in ('characters', 'planets', 'starships', 'vehicles', 'species'):
+        nested_list = EPISODE_FOUR[key]
+        EPISODE_FOUR[key] = removeNestedUrlsFromList(nested_list)
     
 
 
